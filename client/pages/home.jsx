@@ -8,21 +8,24 @@ export default class Home extends React.Component {
     this.state = {
       quotes: []
     };
-    this.getQuotes = this.getQuotes.bind(this);
   }
 
-  getQuotes() {
-    fetch('/')
-      .then(response => response.json())
-      .then(data => this.setState({ quotes: data }));
+  componentDidMount() {
+    fetch('/api/home')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ quotes: data });
+      });
   }
 
   render() {
-    return (
-      <>
-        <Header />
-        <Prompt data={this.state.quotes} />
-      </>
-    );
+    if (this.state.quotes) {
+      return (
+        <>
+          <Header />
+          <Prompt data={this.state.quotes} />
+        </>
+      );
+    }
   }
 }

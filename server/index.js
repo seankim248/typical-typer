@@ -16,20 +16,18 @@ const jsonMiddleware = express.json();
 
 app.use(jsonMiddleware);
 
-app.get('/', (req, res, next) => {
+app.get('/api/home', (req, res, next) => {
   const sql = `
   select "content"
       from "quotes"
   `;
   db.query(sql)
     .then(result => {
-      res.json(result.rows);
+      const quote = result.rows;
+      res.status(201).json(quote);
     })
     .catch(err => {
-      console.error(err);
-      res.status(500).json({
-        error: 'an unexpected error occured'
-      });
+      next(err);
     });
 });
 
