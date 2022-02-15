@@ -1,0 +1,52 @@
+html,
+body {
+  background-color: #1b1b1b;
+  font-family: sans-serif;
+  color: #3e3e3e;
+}
+
+h1 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+  color: #ffb444;
+}
+
+.time-options {
+  margin: 0;
+  color: #3e3e3e;
+  font-size: 1.5rem;
+}
+
+.time-options-number {
+  margin-left: 5px;
+}
+
+.fa-keyboard {
+  color: #ffb444;
+  font-size: 2rem;
+}
+
+.title {
+  color: #ffb444;
+  font-size: 3rem;
+  font-weight: 300;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.counter {
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.prompt {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.selected {
+  color: #ffb444;
+}
