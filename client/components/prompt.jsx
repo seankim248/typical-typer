@@ -62,6 +62,7 @@ export default class Prompt extends React.Component {
     return (
       <div className='container'>
         <div className='main-content'>
+          <h1 className='right'>15</h1>
           <div className='prompt' onClick={this.handleOnClick} onKeyDown={this.handleKeyDown} tabIndex='0'>
               {
                 charList.map((char, index) => (
