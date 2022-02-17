@@ -6,12 +6,13 @@ export default class Prompt extends React.Component {
     this.state = {
       chars: [],
       currentIndex: 0,
-      wrong: false
+      wrong: false,
+      isHidden: false
     };
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.getCharClass = this.getCharClass.bind(this);
     this.handleBlinker = this.handleBlinker.bind(this);
-    this.getTipClass = this.getTipClass.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +28,7 @@ export default class Prompt extends React.Component {
     if (e.key === this.state.chars[this.state.currentIndex]) {
       this.setState({ currentIndex: this.state.currentIndex + 1 });
       this.setState({ wrong: false });
-    } else if (e.key !== this.state.chars[this.state.currentIndex]) {
+    } else if (e.key !== this.state.chars[this.state.currentIndex] && e.keyCode !== 16) {
       this.setState({ wrong: true });
     }
   }
@@ -43,21 +44,21 @@ export default class Prompt extends React.Component {
   }
 
   handleBlinker(index) {
-    if (index === this.state.currentIndex) {
+    if (index === this.state.currentIndex && this.state.isHidden) {
       return 'blinker';
     }
   }
 
-  getTipClass() {
-    if (this.state.currentIndex > 0) {
-      return 'hidden';
-    } else {
-      return '';
-    }
+  handleOnClick() {
+    this.setState({ isHidden: true });
   }
 
   render() {
     const charList = this.state.chars;
+    let h2ClassName;
+    if (this.state.isHidden === true) {
+      h2ClassName = 'hidden';
+    }
     return (
       <div className='container'>
         <div className='main-content'>
@@ -68,7 +69,7 @@ export default class Prompt extends React.Component {
                 ))
               }
           </div>
-          <h2 className={this.getTipClass()}>Click on the prompt to start!</h2>
+          <h2 className={h2ClassName}>Click on the prompt to start!</h2>
         </div>
       </div>
     );
