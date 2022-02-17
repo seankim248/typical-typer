@@ -1,0 +1,92 @@
+html,
+body {
+  background-color: #1b1b1b;
+  font-family: dongle, sans-serif;
+  color: #3e3e3e;
+}
+
+span {
+  font-size: 30px;
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+i {
+  margin-top: 5px;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #ffb444;
+  text-align: center;
+}
+
+h3 {
+  margin: 0;
+  color: #ffb444;
+}
+
+.fa-keyboard {
+  color: #ffb444;
+  font-size: 2rem;
+}
+
+.title {
+  color: #ffb444;
+  font-weight: 300;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.counter {
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.prompt {
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 40px;
+}
+
+.prompt:focus {
+  outline: none;
+}
+
+.prompt:hover {
+  cursor: default;
+}
+
+.right {
+  color: #ffb444;
+}
+
+.wrong {
+  color: #dc2626;
+}
+
+.word {
+  height: 10px;
+  margin: 15px 5px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.time-options {
+  margin: 0;
+}
+
+#blinker {
+  border-left: 3px #ffb444 solid;
+  box-sizing: border-box;
+}
