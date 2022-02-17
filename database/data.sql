@@ -1,3 +1,5 @@
-insert into "quotes" ("quoteId", "content")
-values ("1", "At the end of the day, you are solely responsible for your success and your failure. And the sooner you realize that, you accept that, and integrate that into your work ethic,
-you will start being successful.As long as you blame others for the reason you aren't where you want to be, you will always be a failure.")
+insert into "quotes" ("content")
+values
+  ('At the end of the day, you are solely responsible for your success and your failure. And the sooner you realize that, you accept that, and integrate that into your work ethic, you will start being successful. As long as you blame others for the reason you aren''t where you want to be, you will always be a failure.'),
+  ('Taking responsibility - practicing 100 percent responsibility every day - is about seeing ourselves not as right or wrong, but as an agent, chooser, problem solver, and learner in the complex interrelationships of our lives so that we can better integrate with the people and world around us. When we do this, we enjoy a better and more productive way to live and lead.'),
+  ('Simplicity requires a two - step process. First, we must invest time and energy to discover what stirs us as human beings, what makes our hearts sing, and what brings us joy. Then, we must proceed to create the life that reflects the unique people we truly are.This is the heart and soul of simplicity.')

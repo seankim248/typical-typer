@@ -7,7 +7,10 @@
 }
 
 .main-content {
-  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 750px;
 }
 
 .footer-content {

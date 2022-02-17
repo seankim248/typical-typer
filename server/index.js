@@ -23,7 +23,7 @@ app.get('/api/home', (req, res, next) => {
   `;
   db.query(sql)
     .then(result => {
-      const quote = result.rows;
+      const [quote] = result.rows;
       res.status(201).json(quote);
     })
     .catch(err => {

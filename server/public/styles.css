@@ -5,6 +5,10 @@ body {
   color: #3e3e3e;
 }
 
+span {
+  font-size: 30px;
+}
+
 h1 {
   margin: 0;
 }
@@ -31,7 +35,6 @@ h3 {
 
 .title {
   color: #ffb444;
-  font-size: 3rem;
   font-weight: 300;
   display: inline-block;
   margin-left: 10px;
@@ -45,8 +48,27 @@ h3 {
 .prompt {
   font-size: 3rem;
   font-weight: 300;
+  line-height: 40px;
 }
 
-.selected {
+.prompt:focus {
+  outline: none;
+}
+
+.right {
   color: #ffb444;
+}
+
+.wrong {
+  color: #dc2626;
+}
+
+.word {
+  height: 10px;
+  margin: 15px 5px;
+}
+
+#blinker {
+  border-left: 3px #ffb444 solid;
+  box-sizing: border-box;
 }
