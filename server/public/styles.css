@@ -9,8 +9,19 @@ span {
   font-size: 30px;
 }
 
+i {
+  margin-top: 5px;
+}
+
 h1 {
+  text-align: center;
   margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #ffb444;
+  text-align: center;
 }
 
 h3 {
@@ -66,6 +77,10 @@ h3 {
 .word {
   height: 10px;
   margin: 15px 5px;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 #blinker {

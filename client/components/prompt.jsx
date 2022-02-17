@@ -11,6 +11,7 @@ export default class Prompt extends React.Component {
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.getCharClass = this.getCharClass.bind(this);
     this.handleBlinker = this.handleBlinker.bind(this);
+    this.getTipClass = this.getTipClass.bind(this);
   }
 
   componentDidMount() {
@@ -47,18 +48,27 @@ export default class Prompt extends React.Component {
     }
   }
 
+  getTipClass() {
+    if (this.state.currentIndex > 0) {
+      return 'hidden';
+    } else {
+      return '';
+    }
+  }
+
   render() {
     const charList = this.state.chars;
     return (
       <div className='container'>
         <div className='main-content'>
-          <div className='prompt' onKeyDown={this.handleKeyDown} tabIndex='0'>
+          <div className='prompt' onClick={this.handleOnClick} onKeyDown={this.handleKeyDown} tabIndex='0'>
               {
                 charList.map((char, index) => (
                   <span key={char + index} id={this.handleBlinker(index)} className={char === ' ' ? 'space' : this.getCharClass(index)}>{char}</span>
                 ))
               }
           </div>
+          <h2 className={this.getTipClass()}>Click on the prompt to start!</h2>
         </div>
       </div>
     );
