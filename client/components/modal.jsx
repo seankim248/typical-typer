@@ -11,7 +11,6 @@ export default class Modal extends React.Component {
             <br />
             <button onClick={() => {
               this.props.onResetClick();
-              this.props.onResetClick2();
             }}>Reset</button>
           </div>
         </div>

@@ -60,8 +60,8 @@ export default class Prompt extends React.Component {
   }
 
   onResetClick() {
-    this.setState({ currentIndex: 0 });
-    this.setState({ testFinished: false });
+    this.props.onResetClick();
+    this.setState({ currentIndex: 0, testFinished: false });
   }
 
   handleWPM() {
@@ -107,7 +107,7 @@ export default class Prompt extends React.Component {
           </div>
           <h2 className={h2ClassName}>Click on the prompt to start!</h2>
         </div>
-        <Modal wpm={this.handleWPM()} openModal={this.openModal()} onResetClick={this.onResetClick} onResetClick2={this.props.onResetClick} />
+        <Modal wpm={this.handleWPM()} openModal={this.openModal()} onResetClick={this.onResetClick} />
       </div>
     );
   }
