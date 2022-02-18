@@ -1,4 +1,6 @@
 import React from 'react';
+import calculateWPM from '../lib/wpm-calculator';
+import Modal from './modal';
 
 export default class Prompt extends React.Component {
   constructor(props) {
@@ -7,11 +9,17 @@ export default class Prompt extends React.Component {
       chars: [],
       currentIndex: 0,
       wrong: false,
-      isCounting: false
+      isCounting: false,
+      startTime: null,
+      endTime: null,
+      testFinished: false
     };
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.getCharClass = this.getCharClass.bind(this);
     this.handleBlinker = this.handleBlinker.bind(this);
+    this.handleWPM = this.handleWPM.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.onResetClick = this.onResetClick.bind(this);
   }
 
   componentDidMount() {
@@ -24,11 +32,43 @@ export default class Prompt extends React.Component {
   }
 
   handleKeyDown(e) {
-    if (e.key === this.state.chars[this.state.currentIndex]) {
-      this.setState({ currentIndex: this.state.currentIndex + 1 });
-      this.setState({ wrong: false });
-    } else if (e.key !== this.state.chars[this.state.currentIndex] && e.keyCode !== 16) {
-      this.setState({ wrong: true });
+    if (!this.state.startTime) {
+      this.setState({ startTime: new Date() });
+    }
+    if (this.state.currentIndex >= this.state.chars.length || this.props.time === 0) {
+      if (!this.state.endTime) {
+        this.setState({ endTime: new Date() });
+      }
+      this.setState({ testFinished: true });
+    }
+    if (!this.state.testFinished) {
+      if (e.key === this.state.chars[this.state.currentIndex]) {
+        this.setState({ currentIndex: this.state.currentIndex + 1 });
+        this.setState({ wrong: false });
+      } else if (e.key !== this.state.chars[this.state.currentIndex] && e.keyCode !== 16) {
+        this.setState({ wrong: true });
+      }
+    }
+  }
+
+  openModal() {
+    if (!this.state.testFinished) {
+      return 'hidden';
+    } else {
+      return '';
+    }
+  }
+
+  onResetClick() {
+    this.setState({ currentIndex: 0 });
+    this.setState({ testFinished: false });
+  }
+
+  handleWPM() {
+    if (this.state.currentIndex >= this.state.chars.length) {
+      return calculateWPM(this.state.startTime, this.state.endTime, this.state.chars, true, this.state.currentIndex);
+    } else if (this.props.time === 0) {
+      return calculateWPM(this.state.startTime, this.state.endTime, this.state.chars, false, this.state.currentIndex);
     }
   }
 
@@ -67,6 +107,7 @@ export default class Prompt extends React.Component {
           </div>
           <h2 className={h2ClassName}>Click on the prompt to start!</h2>
         </div>
+        <Modal wpm={this.handleWPM()} openModal={this.openModal()} onResetClick={this.onResetClick} onResetClick2={this.props.onResetClick} />
       </div>
     );
   }

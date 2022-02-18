@@ -8,16 +8,12 @@ export default class Home extends React.Component {
     this.state = {
       time: 15,
       isCounting: false,
-      isHidden: false,
-      optionOne: 'right',
-      optionTwo: '',
-      optionThree: '',
-      optionFour: '',
-      optionFive: ''
+      isHidden: false
     };
     this.handleTimeClick = this.handleTimeClick.bind(this);
     this.onClick = this.onClick.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.onResetClick = this.onResetClick.bind(this);
   }
 
   handleTimeClick(e) {
@@ -37,6 +33,10 @@ export default class Home extends React.Component {
     }
   }
 
+  onResetClick() {
+    this.setState({ time: 15 });
+  }
+
   onClick() {
     this.setState({ isHidden: true });
   }
@@ -53,6 +53,7 @@ export default class Home extends React.Component {
           hidden={this.state.isHidden}
           onClick={this.onClick}
           handleKeyDown={this.handleKeyDown}
+          onResetClick={this.onResetClick}
         />
       </div>
     );
