@@ -34,6 +34,60 @@ h3 {
   color: #ffb444;
 }
 
+button {
+  width: 80px;
+  height: 30px;
+  padding: 0;
+  background-color: #ffb444;
+  color: #3e3e3e;
+  border: none;
+  border-radius: 5px;
+  font-family: dongle, sans-serif;
+  font-size: 1.5rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: fixed;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: auto;
+  background-color: #272727;
+  color: #ffb444;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  width: 50%;
+  max-width: 400px;
+  height: 175px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.wpm-message {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
 .fa-keyboard {
   color: #ffb444;
   font-size: 2rem;
