@@ -19,7 +19,7 @@ i {
 }
 
 h1 {
-  text-align: center;
+  text-align: left;
   margin: 0;
 }
 
@@ -44,6 +44,7 @@ h3 {
   font-weight: 300;
   display: inline-block;
   margin-left: 10px;
+  width: 90%;
 }
 
 .counter {
@@ -84,6 +85,19 @@ h3 {
 
 .time-options {
   margin: 0;
+  flex-basis: 1;
+}
+
+.time-options:hover {
+  cursor: default;
+}
+
+.time-options-number {
+  margin: 0 4px;
+}
+
+.time-options-number:hover {
+  cursor: pointer;
 }
 
 #blinker {
