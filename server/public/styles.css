@@ -88,8 +88,16 @@ h3 {
   flex-basis: 1;
 }
 
+.time-options:hover {
+  cursor: default;
+}
+
 .time-options-number {
-  margin: 0 5px;
+  margin: 0 4px;
+}
+
+.time-options-number:hover {
+  cursor: pointer;
 }
 
 #blinker {

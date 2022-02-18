@@ -7,12 +7,11 @@ export default class Prompt extends React.Component {
       chars: [],
       currentIndex: 0,
       wrong: false,
-      isHidden: false
+      isCounting: false
     };
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.getCharClass = this.getCharClass.bind(this);
     this.handleBlinker = this.handleBlinker.bind(this);
-    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   componentDidMount() {
@@ -44,26 +43,22 @@ export default class Prompt extends React.Component {
   }
 
   handleBlinker(index) {
-    if (index === this.state.currentIndex && this.state.isHidden) {
+    if (index === this.state.currentIndex && this.props.hidden) {
       return 'blinker';
     }
-  }
-
-  handleOnClick() {
-    this.setState({ isHidden: true });
   }
 
   render() {
     const charList = this.state.chars;
     let h2ClassName;
-    if (this.state.isHidden === true) {
+    if (this.props.hidden === true) {
       h2ClassName = 'hidden';
     }
     return (
       <div className='container'>
         <div className='main-content'>
-          <h1 className='right'>15</h1>
-          <div className='prompt' onClick={this.handleOnClick} onKeyDown={this.handleKeyDown} tabIndex='0'>
+          <h1 className='right'>{this.props.time}</h1>
+          <div className='prompt' onClick={this.props.onClick} onKeyDown={this.handleKeyDown} tabIndex='0'>
               {
                 charList.map((char, index) => (
                   <span key={char + index} id={this.handleBlinker(index)} className={char === ' ' ? 'space' : this.getCharClass(index)}>{char}</span>
