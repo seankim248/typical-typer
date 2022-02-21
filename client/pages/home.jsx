@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/header';
 import Prompt from '../components/prompt';
+import Footer from '../components/footer';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class Home extends React.Component {
     this.onClick = this.onClick.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.onResetClick = this.onResetClick.bind(this);
+    this.onTestFinish = this.onTestFinish.bind(this);
   }
 
   handleTimeClick(e) {
@@ -34,7 +36,13 @@ export default class Home extends React.Component {
   }
 
   onResetClick() {
+    this.setState({ isCounting: false });
+    this.setState({ isHidden: false });
     this.setState({ time: 15 });
+  }
+
+  onTestFinish() {
+    this.setState({ time: 1 });
   }
 
   onClick() {
@@ -43,10 +51,11 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div onKeyDown={this.handleKeyDown}>
+      <div className='container' onKeyDown={this.handleKeyDown}>
         <Header
           onClick={this.handleTimeClick}
           time={this.state.time}
+          testStart={this.state.isCounting}
         />
         <Prompt
           time={this.state.time}
@@ -54,7 +63,9 @@ export default class Home extends React.Component {
           onClick={this.onClick}
           handleKeyDown={this.handleKeyDown}
           onResetClick={this.onResetClick}
+          onTestFinish={this.onTestFinish}
         />
+        <Footer />
       </div>
     );
   }

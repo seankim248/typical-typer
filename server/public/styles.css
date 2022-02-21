@@ -1,5 +1,6 @@
 html,
 body {
+  height: 100vh;
   background-color: #1b1b1b;
   font-family: dongle, sans-serif;
   color: #3e3e3e;
@@ -98,7 +99,7 @@ button:hover {
   font-weight: 300;
   display: inline-block;
   margin-left: 10px;
-  width: 90%;
+  width: 75%;
 }
 
 .counter {

@@ -20,8 +20,10 @@ app.get('/api/home', (req, res, next) => {
   const sql = `
   select "content"
       from "quotes"
+      where "quoteId" = $1
   `;
-  db.query(sql)
+  const params = [Math.floor(Math.random() * 20) + 1];
+  db.query(sql, params)
     .then(result => {
       const [quote] = result.rows;
       res.status(201).json(quote);
