@@ -17,30 +17,10 @@ const db = new pg.Pool({
 const httpServer = http.createServer(app);
 const io = new Server(httpServer);
 
-// const playerSchema = {
-//   currentWordIndex: 0,
-//   socketId: '',
-//   isPartyLeader: false,
-//   wpm: -1,
-//   username: ''
-// };
-
-// const gameSchema = {
-//   chars: [],
-//   isOpen: true,
-//   isOver: false,
-//   players: [playerSchema],
-//   startTime: 0
-// };
-
 io.on('connection', socket => {
   socket.on('create-room', string => {
 
   });
-
-  // socket.on('disconnect', reason => {
-  //   console.log(socket.id);
-  // });
 });
 
 const jsonMiddleware = express.json();
