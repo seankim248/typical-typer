@@ -3,9 +3,6 @@
   max-width: 900px;
   height: 100vh;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .header-content {
@@ -24,24 +21,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
   margin-bottom: 25px;
 }
-
-/* @media (min-width: 550px) {
-  .main-content {
-    margin-top: 150px;
-  }
-}
-
-@media (min-width: 750px) {
-  .main-content {
-    margin-top: 200px;
-  }
-}
-
-@media (min-width: 950px) {
-  .main-content {
-    margin-top: 250px;
-  }
-} */

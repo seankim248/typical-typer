@@ -1,5 +1,8 @@
 require('dotenv/config');
 const express = require('express');
+const http = require('http');
+const { Server } = require('socket.io');
+const app = express();
 const errorMiddleware = require('./error-middleware');
 const staticMiddleware = require('./static-middleware');
 const pg = require('pg');
@@ -11,7 +14,35 @@ const db = new pg.Pool({
   }
 });
 
-const app = express();
+const httpServer = http.createServer(app);
+const io = new Server(httpServer);
+
+// const playerSchema = {
+//   currentWordIndex: 0,
+//   socketId: '',
+//   isPartyLeader: false,
+//   wpm: -1,
+//   username: ''
+// };
+
+// const gameSchema = {
+//   chars: [],
+//   isOpen: true,
+//   isOver: false,
+//   players: [playerSchema],
+//   startTime: 0
+// };
+
+io.on('connection', socket => {
+  socket.on('create-room', string => {
+
+  });
+
+  // socket.on('disconnect', reason => {
+  //   console.log(socket.id);
+  // });
+});
+
 const jsonMiddleware = express.json();
 
 app.use(jsonMiddleware);
@@ -37,7 +68,7 @@ app.use(staticMiddleware);
 
 app.use(errorMiddleware);
 
-app.listen(process.env.PORT, () => {
+httpServer.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`express server listening on port ${process.env.PORT}`);
 });

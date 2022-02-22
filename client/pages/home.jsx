@@ -51,7 +51,7 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div className='container' onKeyDown={this.handleKeyDown}>
+      <div className='home-page' onKeyDown={this.handleKeyDown}>
         <Header
           onClick={this.handleTimeClick}
           time={this.state.time}
@@ -65,7 +65,7 @@ export default class Home extends React.Component {
           onResetClick={this.onResetClick}
           onTestFinish={this.onTestFinish}
         />
-        <Footer />
+        <Footer testStart={this.state.isCounting} />
       </div>
     );
   }

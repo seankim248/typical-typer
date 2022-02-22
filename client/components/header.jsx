@@ -29,8 +29,6 @@ export default class Header extends React.Component {
     const timeArr = [15, 30, 45, 60, 120];
     return (
       <div className='header-content'>
-        <i className="far fa-keyboard"></i>
-        <h1 className='title'>typicaltyper</h1>
         <p className={`${this.hideTimeOptions()} time-options`} onClick={this.handleTimeClick}>
           time:
           {

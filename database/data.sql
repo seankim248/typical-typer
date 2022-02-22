@@ -7,7 +7,7 @@ values
   ('Victory at all costs, victory in spite of all terror, victory however long and hard the road may be; for without victory, there is no survival.'),
   ('There are risks and costs to action. But they are far less than the long range risks of comfortable inaction.'),
   ('We live in a world where finding fault in others seems to be the favorite blood sport. It has long been the basis of political campaign strategy. It is the theme of much television programming across the world. It sells newspapers. Whenever we meet anyone, our first, almost unconscious reaction may be to look for imperfections.'),
-  ('In the long run, we shape our lives, and we shape ourselves.The process never ends until we die. And the choices we make are ultimately our own responsibility.'),
+  ('In the long run, we shape our lives, and we shape ourselves. The process never ends until we die. And the choices we make are ultimately our own responsibility.'),
   ('The mind is the limit. As long as the mind can envision the fact that you can do something, you can do it as long as you really believe 100 percent.'),
   ('One''s life has value so long as one attributes value to the life of others, by means of love, friendship, indignation and compassion.'),
   ('An entire nation, it seemed, was standing in one long breadline, desperate for even the barest essentials. It was a crisis of monumental proportions. It was known as the Great Depression.'),
