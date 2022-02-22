@@ -9,9 +9,7 @@ export default class Modal extends React.Component {
           <div className={`modal ${this.props.openModal}`}>
             <h1 className='wpm-message'>WPM: {this.props.wpm}</h1>
             <br />
-            <button onClick={() => {
-              this.props.onResetClick();
-            }}>Reset</button>
+            <button onClick={this.props.onResetClick}>Reset</button>
           </div>
         </div>
       </div>

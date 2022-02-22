@@ -1,5 +1,22 @@
 insert into "quotes" ("content")
 values
-  ('At the end of the day, you are solely responsible for your success and your failure. And the sooner you realize that, you accept that, and integrate that into your work ethic, you will start being successful. As long as you blame others for the reason you aren''t where you want to be, you will always be a failure.'),
   ('Taking responsibility - practicing 100 percent responsibility every day - is about seeing ourselves not as right or wrong, but as an agent, chooser, problem solver, and learner in the complex interrelationships of our lives so that we can better integrate with the people and world around us. When we do this, we enjoy a better and more productive way to live and lead.'),
-  ('Simplicity requires a two - step process. First, we must invest time and energy to discover what stirs us as human beings, what makes our hearts sing, and what brings us joy. Then, we must proceed to create the life that reflects the unique people we truly are.This is the heart and soul of simplicity.')
+  ('Simplicity requires a two - step process. First, we must invest time and energy to discover what stirs us as human beings, what makes our hearts sing, and what brings us joy. Then, we must proceed to create the life that reflects the unique people we truly are. This is the heart and soul of simplicity.'),
+  ('As long as you keep going, you''ll keep getting better. And as you get better, you gain more confidence. That alone is success.'),
+  ('When one door closes, another opens; but we often look so long and so regretfully upon the closed door that we do not see the one which has opened for us.'),
+  ('Victory at all costs, victory in spite of all terror, victory however long and hard the road may be; for without victory, there is no survival.'),
+  ('There are risks and costs to action. But they are far less than the long range risks of comfortable inaction.'),
+  ('We live in a world where finding fault in others seems to be the favorite blood sport. It has long been the basis of political campaign strategy. It is the theme of much television programming across the world. It sells newspapers. Whenever we meet anyone, our first, almost unconscious reaction may be to look for imperfections.'),
+  ('In the long run, we shape our lives, and we shape ourselves. The process never ends until we die. And the choices we make are ultimately our own responsibility.'),
+  ('The mind is the limit. As long as the mind can envision the fact that you can do something, you can do it as long as you really believe 100 percent.'),
+  ('One''s life has value so long as one attributes value to the life of others, by means of love, friendship, indignation and compassion.'),
+  ('An entire nation, it seemed, was standing in one long breadline, desperate for even the barest essentials. It was a crisis of monumental proportions. It was known as the Great Depression.'),
+  ('Some people ask the secret of our long marriage. We take time to go to a restaurant two times a week. A little candlelight, dinner, soft music and dancing. She goes Tuesdays, I go Fridays.'),
+  ('The simple act of paying attention can take you a long way.'),
+  ('Sometimes we make the process more complicated than we need to. We will never make a journey of a thousand miles by fretting about how long it will take or how hard it will be. We make the journey by taking each day step by step and then repeating it again and again until we reach our destination.'),
+  ('Perseverance is a great element of success. If you only knock long enough and loud enough at the gate, you are sure to wake up somebody.'),
+  ('Short cuts make long delays.'),
+  ('As long as God gives me strength to work and try to make things real for my children, I''m going to work for it - even it it means making the ultimate sacrifice'),
+  ('I try to keep in mind that it''s a long journey, It''s not a race. It''s about staying focused, continuing to do good work, make my family and community proud; that''s all I really want to do... and pay my bills'),
+  ('Vick''s snake is so freaking annoying to play against. I also hate Edwin''s projectiles.'),
+  ('Love is so short, forgetting is so long.')

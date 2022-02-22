@@ -35,10 +35,11 @@ export default class Prompt extends React.Component {
     if (!this.state.startTime) {
       this.setState({ startTime: new Date() });
     }
-    if (this.state.currentIndex >= this.state.chars.length || this.props.time === 0) {
+    if (this.state.currentIndex >= this.state.chars.length - 1 || this.props.time === 0) {
       if (!this.state.endTime) {
         this.setState({ endTime: new Date() });
       }
+      this.props.onTestFinish();
       this.setState({ testFinished: true });
     }
     if (!this.state.testFinished) {
@@ -62,12 +63,18 @@ export default class Prompt extends React.Component {
   onResetClick() {
     this.props.onResetClick();
     this.setState({ currentIndex: 0, testFinished: false });
+    fetch('/api/home')
+      .then(res => res.json())
+      .then(quote => {
+        const charArr = quote.content.split('');
+        this.setState({ chars: charArr });
+      });
   }
 
   handleWPM() {
-    if (this.state.currentIndex >= this.state.chars.length) {
+    if (this.state.currentIndex >= this.state.chars.length - 1) {
       return calculateWPM(this.state.startTime, this.state.endTime, this.state.chars, true, this.state.currentIndex);
-    } else if (this.props.time === 0) {
+    } else if (this.props.time === 1) {
       return calculateWPM(this.state.startTime, this.state.endTime, this.state.chars, false, this.state.currentIndex);
     }
   }
@@ -95,7 +102,7 @@ export default class Prompt extends React.Component {
       h2ClassName = 'hidden';
     }
     return (
-      <div className='container'>
+      <div>
         <div className='main-content'>
           <h1 className='right'>{this.props.time}</h1>
           <div className='prompt' onClick={this.props.onClick} onKeyDown={this.handleKeyDown} tabIndex='0'>
