@@ -42,7 +42,7 @@ export default class Room extends React.Component {
   handleCopy() {
     const input = this.props.roomCode;
     navigator.clipboard.writeText(input).then(() =>
-      alert('copied')
+      alert('copied room ID')
     );
   }
 
