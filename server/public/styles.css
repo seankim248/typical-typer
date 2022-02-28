@@ -45,6 +45,7 @@ input {
   border-radius: 50px;
   padding: 10px;
   height: 50px;
+  width: 100%;
 }
 
 p {
@@ -87,6 +88,10 @@ button:hover {
   cursor: pointer;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .modal-container {
   display: flex;
   justify-content: center;
@@ -108,6 +113,7 @@ button:hover {
   width: 50%;
   max-width: 400px;
   height: 200px;
+  min-width: 300px;
 }
 
 .overlay {
@@ -199,7 +205,7 @@ button:hover {
   height: 95vh;
 }
 
-.user-bar {
+.player-info {
   font-weight: 300;
   color: #ffb444;
 }
@@ -209,8 +215,22 @@ button:hover {
   bottom: 27px;
 }
 
+.copy-button {
+  margin-left: 10px;
+  background-color: #272727;
+  color: #ffb444;
+  border: 2px solid #ffb444;
+  transition: 0.25s;
+}
+
+.copy-button:hover {
+  background-color: #ffb444;
+  color: #272727;
+}
+
 .links:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 #blinker {

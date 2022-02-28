@@ -5,7 +5,7 @@ export default function calculateWPM(startTime, endTime, chars, finished, curren
     if (finished) {
       const numberOfChars = chars.length;
       const wps = numberOfChars / seconds;
-      const wpm = Math.round((wps * 60.0) / 5);
+      const wpm = Math.round((wps * 60) / 5);
       return wpm;
     } else if (!finished) {
       const numberOfTypedChars = currentIndex;
