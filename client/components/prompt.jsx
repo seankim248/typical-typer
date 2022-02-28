@@ -108,7 +108,7 @@ export default class Prompt extends React.Component {
           <div className='prompt' onClick={this.props.onClick} onKeyDown={this.handleKeyDown} tabIndex='0'>
               {
                 charList.map((char, index) => (
-                  <span key={char + index} id={this.handleBlinker(index)} className={char === ' ' ? 'space' : this.getCharClass(index)}>{char}</span>
+                  <span key={char + index} id={this.handleBlinker(index)} className={this.getCharClass(index)}>{char}</span>
                 ))
               }
           </div>
