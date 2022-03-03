@@ -19,12 +19,12 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: #ffb444;
+  background-color: #7d7;
   border-radius: 50px;
 }
 
 a {
-  color: #ffb444;
+  color: #7d7;
   font-size: 1.4rem;
   text-decoration: none;
 }
@@ -41,10 +41,11 @@ input {
   font-family: dongle, sans-serif;
   background-color: #1b1b1b;
   border: none;
-  color: #ffb444;
+  color: #7d7;
   border-radius: 50px;
   padding: 10px;
   height: 50px;
+  width: 100%;
 }
 
 p {
@@ -62,20 +63,20 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  color: #ffb444;
+  color: #7d7;
   text-align: center;
 }
 
 h3 {
   margin: 0;
-  color: #ffb444;
+  color: #7d7;
 }
 
 button {
   width: 80px;
   height: 30px;
   padding: 0;
-  background-color: #ffb444;
+  background-color: #7d7;
   color: #3e3e3e;
   border: none;
   border-radius: 5px;
@@ -85,6 +86,10 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .modal-container {
@@ -101,13 +106,14 @@ button:hover {
   align-items: center;
   left: auto;
   background-color: #272727;
-  color: #ffb444;
+  color: #7d7;
   padding: 25px;
   border-radius: 10px;
   text-align: center;
   width: 50%;
   max-width: 400px;
   height: 200px;
+  min-width: 300px;
 }
 
 .overlay {
@@ -126,12 +132,12 @@ button:hover {
 }
 
 .fa-keyboard {
-  color: #ffb444;
+  color: #7d7;
   font-size: 2rem;
 }
 
 .title {
-  color: #ffb444;
+  color: #7d7;
   font-size: 2rem;
   font-weight: 300;
   display: inline-block;
@@ -159,7 +165,7 @@ button:hover {
 }
 
 .right {
-  color: #ffb444;
+  color: #7d7;
 }
 
 .wrong {
@@ -199,9 +205,9 @@ button:hover {
   height: 95vh;
 }
 
-.user-bar {
+.player-info {
   font-weight: 300;
-  color: #ffb444;
+  color: #7d7;
 }
 
 .room-footer {
@@ -209,11 +215,25 @@ button:hover {
   bottom: 27px;
 }
 
+.copy-button {
+  margin-left: 10px;
+  background-color: #272727;
+  color: #7d7;
+  border: 2px solid #7d7;
+  transition: 0.25s;
+}
+
+.copy-button:hover {
+  background-color: #7d7;
+  color: #272727;
+}
+
 .links:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 #blinker {
-  border-left: 3px #ffb444 solid;
+  border-left: 3px #7d7 solid;
   box-sizing: border-box;
 }

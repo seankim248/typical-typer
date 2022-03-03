@@ -23,7 +23,8 @@ export default class App extends React.Component {
       return <Home />;
     }
     if (route.path === 'room') {
-      return <Room />;
+      const roomCode = route.params.get('roomCode');
+      return <Room roomCode={roomCode} />;
     }
   }
 

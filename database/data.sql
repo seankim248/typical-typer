@@ -16,7 +16,12 @@ values
   ('Sometimes we make the process more complicated than we need to. We will never make a journey of a thousand miles by fretting about how long it will take or how hard it will be. We make the journey by taking each day step by step and then repeating it again and again until we reach our destination.'),
   ('Perseverance is a great element of success. If you only knock long enough and loud enough at the gate, you are sure to wake up somebody.'),
   ('Short cuts make long delays.'),
-  ('As long as God gives me strength to work and try to make things real for my children, I''m going to work for it - even it it means making the ultimate sacrifice'),
+  ('As long as God gives me strength to work and try to make things real for my children, I''m going to work for it - even if it means making the ultimate sacrifice'),
   ('I try to keep in mind that it''s a long journey, It''s not a race. It''s about staying focused, continuing to do good work, make my family and community proud; that''s all I really want to do... and pay my bills'),
-  ('Vick''s snake is so freaking annoying to play against. I also hate Edwin''s projectiles.'),
-  ('Love is so short, forgetting is so long.')
+  ('If you''re not hopeful and optimistic, then you just give up. You have to take the long hard look and just believe that if you''re consistent, you will succeed.'),
+  ('Love is so short, forgetting is so long.'),
+  ('Think of the long view of life, not just what''s going to happen today or tomorrow. Don''t give up what you most want in life for something you think you want now.'),
+  ('Failure is only postponed success as long as courage ''coaches'' ambition. The habit of persistence is the habit of victory.'),
+  ('The duty of rhetoric is to deal with such matters as we deliberate upon without arts or systems to guide us, in the hearing of persons who cannot take in at a glance a complicated argument or follow a long chain of reasoning.'),
+  ('I have made it a rule of my life to trust a man long after other people gave him up, but I don''t see how I can ever trust any human being again.'),
+  ('Technology has forever changed the world we live in. We''re online, in one way or another, all day long. Our phones and computers have become reflections of our personalities, our interests, and our identities. They hold much that is important to us.')

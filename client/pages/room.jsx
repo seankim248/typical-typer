@@ -1,37 +1,55 @@
 import React from 'react';
 import { io } from 'socket.io-client';
-import { v4 as uuidv4 } from 'uuid';
 
 export default class Room extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       usernameCreated: false,
-      username: '',
-      roomId: ''
+      users: []
     };
 
-    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.getModalClass = this.getModalClass.bind(this);
+    this.handleCopy = this.handleCopy.bind(this);
   }
 
   componentDidMount() {
-    const roomCode = uuidv4();
-    this.socket = io();
+    this.socket = io('/', {
+      query: {
+        roomCode: this.props.roomCode
+      }
+    });
+
     const { socket } = this;
-    socket.emit('create-room', roomCode);
-    this.setState({ roomId: roomCode });
+
+    socket.on('connect', () => {
+      socket.on('players', users => {
+        this.setState({ users: users });
+      });
+
+      socket.on('user-joined', user => {
+        this.setState({ users: this.state.users.concat(user) });
+      });
+    });
   }
 
-  componentWillUnmount() {
-    this.socket.disconnect();
+  handleChange(e) {
+    this.setState({ username: e.target.value });
   }
 
-  handleInput(e) {
-    if (e.keyCode === 13) {
-      this.setState({ username: e.target.value });
-      this.setState({ usernameCreated: true });
-    }
+  handleCopy() {
+    const input = this.props.roomCode;
+    navigator.clipboard.writeText(input).then(() =>
+      alert('copied room ID')
+    );
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.setState({ usernameCreated: true });
+    this.socket.emit('username-created', this.state.username);
   }
 
   getModalClass() {
@@ -43,7 +61,8 @@ export default class Room extends React.Component {
   }
 
   render() {
-    if (!this.state.username) {
+    const users = this.state.users;
+    if (!this.state.usernameCreated) {
       return (
         <div>
           <div className={`overlay ${this.getModalClass()}`}></div>
@@ -51,7 +70,9 @@ export default class Room extends React.Component {
             <div className='modal'>
               <h1 className='wpm-message'>Username:</h1>
               <br />
-              <input type="text" maxLength='12' spellCheck='false' onKeyDown={this.handleInput} />
+              <form onSubmit={this.handleSubmit}>
+                <input type="text" maxLength='12' spellCheck='false' value={this.state.username} onChange={this.handleChange} />
+              </form>
             </div>
           </div>
         </div>
@@ -59,12 +80,19 @@ export default class Room extends React.Component {
     } else {
       return (
         <div>
-          <div className='user-bar'>
-            <h1>{this.state.username}</h1>
-            <progress max='100' value='0'></progress>
+          <div>
+            {
+              users.map(user => (
+                <div key={user.socketId} className='player-info'>
+                  <h1>{user.username}</h1>
+                  <progress max='100' value='0'></progress>
+                </div>
+              ))
+            }
           </div>
           <div className='room-footer'>
-            <h1 className='right'>Room ID: {this.state.roomId}</h1>
+            <h1 className='right inline-block'>Room ID: {this.props.roomCode}</h1><button className='copy-button' onClick={this.handleCopy}>COPY</button>
+            <br />
             <a className='links' href="#">Leave Room</a>
           </div>
         </div>
