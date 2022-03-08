@@ -32,18 +32,36 @@ io.on('connection', socket => {
   }
   socket.join(roomCode);
 
-  const user = { socketId: socket.id, username: '' };
+  const user = { socketId: socket.id, username: '', wpm: null };
   users.push(user);
 
   socket.on('username-created', username => {
+    if (users.length === 1) {
+      user.roomHost = true;
+    } else {
+      user.roomHost = false;
+    }
     user.username = username;
     io.to(roomCode).emit('user-joined', user);
     socket.to(roomCode).emit('room-joined', user);
   });
 
+  socket.on('start', didStart => {
+    socket.to(roomCode).emit('started', didStart);
+  });
+
   socket.emit('players', users.filter(user => {
     return user.username !== '';
   }));
+
+  socket.on('pressed-start', startGame => {
+    socket.emit('startGame', startGame);
+  });
+
+  socket.on('wpm', wpm => {
+    user.wpm = wpm;
+    io.to(roomCode).emit('user-wpm', user);
+  });
 });
 
 const jsonMiddleware = express.json();
@@ -72,6 +90,32 @@ app.post('/api/room', (req, res, next) => {
   const users = [];
   rooms.set(roomCode, users);
   res.json({ roomCode: roomCode });
+});
+
+app.post('/api/start/:roomId', (req, res, next) => {
+  let count = 3;
+  const countDown = setInterval(() => {
+    if (count === 0) {
+      clearInterval(countDown);
+    }
+    io.to(req.params.roomId).emit('start-countdown', count);
+    count -= 1;
+  }, 1000);
+  const sql = `
+  select "content"
+      from "quotes"
+      where "quoteId" = $1
+  `;
+  const params = [Math.floor(Math.random() * 25) + 1];
+  db.query(sql, params)
+    .then(result => {
+      const [quote] = result.rows;
+      io.to(req.params.roomId).emit('start', quote, true);
+      res.json();
+    })
+    .catch(err => {
+      next(err);
+    });
 });
 
 app.use(staticMiddleware);

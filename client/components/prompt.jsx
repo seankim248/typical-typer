@@ -62,7 +62,7 @@ export default class Prompt extends React.Component {
 
   onResetClick() {
     this.props.onResetClick();
-    this.setState({ currentIndex: 0, testFinished: false, startTime: null, endTime: null });
+    this.setState({ currentIndex: 0, testFinished: false, startTime: null, endTime: null, wrong: false });
     fetch('/api/home')
       .then(res => res.json())
       .then(quote => {
