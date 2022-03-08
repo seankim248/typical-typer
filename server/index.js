@@ -106,7 +106,7 @@ app.post('/api/start/:roomId', (req, res, next) => {
       from "quotes"
       where "quoteId" = $1
   `;
-  const params = [Math.floor(Math.random() * 25) + 1];
+  const params = [26];
   db.query(sql, params)
     .then(result => {
       const [quote] = result.rows;

@@ -43,35 +43,33 @@ export default class Room extends React.Component {
 
     const { socket } = this;
 
-    socket.on('connect', () => {
-      socket.on('players', users => {
-        this.setState({ users: users });
-      });
+    socket.on('players', users => {
+      this.setState({ users: users });
+    });
 
-      socket.on('user-joined', user => {
-        this.setState({ users: this.state.users.concat(user) });
-        if (user.roomHost) {
-          this.setState({ roomHost: true });
-        }
-      });
+    socket.on('user-joined', user => {
+      this.setState({ users: this.state.users.concat(user) });
+      if (user.roomHost) {
+        this.setState({ roomHost: true });
+      }
+    });
 
-      socket.on('start', (quote, boolean) => {
-        this.setState({
-          chars: quote.content.split(''),
-          startGame: boolean
-        });
+    socket.on('start', (quote, boolean) => {
+      this.setState({
+        chars: quote.content.split(''),
+        startGame: boolean
       });
+    });
 
-      socket.on('start-countdown', count => {
-        this.setState({ countDown: count });
-      });
+    socket.on('start-countdown', count => {
+      this.setState({ countDown: count });
+    });
 
-      socket.on('user-wpm', updated => {
-        this.setState(state => {
-          return {
-            users: state.users.map(original => original.socketId === updated.socketId ? updated : original)
-          };
-        });
+    socket.on('user-wpm', updated => {
+      this.setState(state => {
+        return {
+          users: state.users.map(original => original.socketId === updated.socketId ? updated : original)
+        };
       });
     });
   }
@@ -83,9 +81,10 @@ export default class Room extends React.Component {
         this.setState({ startTime: new Date() });
       }
     }
-    if (this.state.currentIndex >= this.state.chars.length - 1) {
+    if (this.state.testFinished && this.state.wpm === null) {
       const wpm = calculateWPM(this.state.startTime, this.state.endTime, this.state.chars, true, this.state.currentIndex);
       this.socket.emit('wpm', wpm);
+      this.setState({ wpm: wpm });
     }
   }
 
@@ -196,7 +195,7 @@ export default class Room extends React.Component {
                 <div key={user.socketId} className='player-info'>
                   <div className='player-text'>
                     <h1>{user.username}</h1>
-                    <h1 className={`one-half-rem ${this.getWPMClass()}`}>{`${user.wpm}wpm`}</h1>
+                    <h1 className={`one-half-rem ${this.getWPMClass()}`}>{ user.wpm ? `${user.wpm}wpm` : ''}</h1>
                   </div>
                   <progress max='100' value='0'></progress>
                 </div>
