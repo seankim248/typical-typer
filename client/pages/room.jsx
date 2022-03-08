@@ -7,6 +7,7 @@ export default class Room extends React.Component {
     super(props);
     this.state = {
       chars: [],
+      words: [],
       usernameCreated: false,
       users: [],
       roomHost: false,
@@ -18,7 +19,8 @@ export default class Room extends React.Component {
       startTime: null,
       endTime: null,
       testFinished: false,
-      wpm: null
+      wpm: null,
+      wordsCompleted: 0
     };
 
     this.divRef = React.createRef();
@@ -57,7 +59,8 @@ export default class Room extends React.Component {
     socket.on('start', (quote, boolean) => {
       this.setState({
         chars: quote.content.split(''),
-        startGame: boolean
+        startGame: boolean,
+        words: quote.content.split(' ')
       });
     });
 
@@ -66,6 +69,14 @@ export default class Room extends React.Component {
     });
 
     socket.on('user-wpm', updated => {
+      this.setState(state => {
+        return {
+          users: state.users.map(original => original.socketId === updated.socketId ? updated : original)
+        };
+      });
+    });
+
+    socket.on('user-words-completed', updated => {
       this.setState(state => {
         return {
           users: state.users.map(original => original.socketId === updated.socketId ? updated : original)
@@ -93,9 +104,14 @@ export default class Room extends React.Component {
       if (!this.state.endTime) {
         this.setState({ endTime: new Date() });
       }
+      this.socket.emit('completed-words', this.state.wordsCompleted + 1);
       this.setState({ testFinished: true });
     }
     if (!this.state.testFinished) {
+      if (e.keyCode === 32 && e.key === this.state.chars[this.state.currentIndex]) {
+        this.setState({ wordsCompleted: this.state.wordsCompleted + 1 });
+        this.socket.emit('completed-words', this.state.wordsCompleted + 1);
+      }
       if (e.key === this.state.chars[this.state.currentIndex]) {
         this.setState({ currentIndex: this.state.currentIndex + 1 });
         this.setState({ wrong: false });
@@ -197,7 +213,7 @@ export default class Room extends React.Component {
                     <h1>{user.username}</h1>
                     <h1 className='one-half-rem'>{ user.wpm ? `${user.wpm}wpm` : ''}</h1>
                   </div>
-                  <progress max='100' value='0'></progress>
+                  <progress max={this.state.words.length} value={user.wordsCompleted}></progress>
                 </div>
               ))
             }

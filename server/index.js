@@ -32,7 +32,7 @@ io.on('connection', socket => {
   }
   socket.join(roomCode);
 
-  const user = { socketId: socket.id, username: '', wpm: null };
+  const user = { socketId: socket.id, username: '', wpm: null, wordsCompleted: 0 };
   users.push(user);
 
   socket.on('username-created', username => {
@@ -61,6 +61,11 @@ io.on('connection', socket => {
   socket.on('wpm', wpm => {
     user.wpm = wpm;
     io.to(roomCode).emit('user-wpm', user);
+  });
+
+  socket.on('completed-words', words => {
+    user.wordsCompleted = words;
+    io.to(roomCode).emit('user-words-completed', user);
   });
 });
 
