@@ -21,6 +21,7 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
   background-color: #7d7;
   border-radius: 50px;
+  transition: width 0.7s ease;
 }
 
 a {
