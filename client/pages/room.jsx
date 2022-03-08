@@ -195,7 +195,7 @@ export default class Room extends React.Component {
                 <div key={user.socketId} className='player-info'>
                   <div className='player-text'>
                     <h1>{user.username}</h1>
-                    <h1 className={`one-half-rem ${this.getWPMClass()}`}>{ user.wpm ? `${user.wpm}wpm` : ''}</h1>
+                    <h1 className='one-half-rem'>{ user.wpm ? `${user.wpm}wpm` : ''}</h1>
                   </div>
                   <progress max='100' value='0'></progress>
                 </div>
