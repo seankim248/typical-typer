@@ -88,6 +88,14 @@ button:hover {
   cursor: pointer;
 }
 
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -210,16 +218,26 @@ button:hover {
   color: #7d7;
 }
 
+.player-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.one-half-rem {
+  font-size: 1.5rem;
+}
+
 .room-footer {
   position: fixed;
   bottom: 27px;
 }
 
 .copy-button {
-  margin-left: 10px;
   background-color: #272727;
   color: #7d7;
   border: 2px solid #7d7;
+  height: 33px;
   transition: 0.25s;
 }
 
@@ -231,6 +249,10 @@ button:hover {
 .links:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.margin-left {
+  margin-left: 10px;
 }
 
 #blinker {
