@@ -67,6 +67,14 @@ io.on('connection', socket => {
     user.wordsCompleted = words;
     io.to(roomCode).emit('user-words-completed', user);
   });
+
+  socket.on('reset', () => {
+    for (let i = 0; i < users.length; i++) {
+      users[i].wordsCompleted = 0;
+      users[i].wpm = null;
+    }
+    io.to(roomCode).emit('user-reset', users);
+  });
 });
 
 const jsonMiddleware = express.json();

@@ -31,6 +31,7 @@ export default class Room extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleCopy = this.handleCopy.bind(this);
+    this.handleReset = this.handleReset.bind(this);
     this.handleStart = this.handleStart.bind(this);
     this.handleBlinker = this.handleBlinker.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -81,6 +82,20 @@ export default class Room extends React.Component {
         return {
           users: state.users.map(original => original.socketId === updated.socketId ? updated : original)
         };
+      });
+    });
+
+    socket.on('user-reset', updated => {
+      this.setState({
+        users: updated,
+        startGame: false,
+        startTime: null,
+        endTime: null,
+        countDown: null,
+        currentIndex: 0,
+        testFinished: false,
+        wpm: null,
+        wordsCompleted: 0
       });
     });
   }
@@ -148,6 +163,10 @@ export default class Room extends React.Component {
     navigator.clipboard.writeText(input).then(() =>
       alert('copied room ID')
     );
+  }
+
+  handleReset() {
+    this.socket.emit('reset');
   }
 
   handleStart() {
@@ -221,7 +240,7 @@ export default class Room extends React.Component {
           { this.state.roomHost &&
             <button className={`copy-button ${this.state.startGame ? 'hidden' : ''}`} onClick={this.handleStart}>START</button>
           }
-          {
+          { this.state.startGame &&
             <div className='prompt' ref={this.divRef} tabIndex='0' onKeyDown={this.handleKeyDown}>
               {
                 this.state.chars.map((char, index) => (
@@ -229,9 +248,11 @@ export default class Room extends React.Component {
                 ))
               }
             </div>
-
           }
-          {
+          { this.state.roomHost && this.state.endTime &&
+            <button className={`race-again-button ${!this.state.startTime ? 'hidden' : ''}`} onClick={this.handleReset}>RACE AGAIN</button>
+          }
+          { this.state.startGame &&
             <h1 className={`right align-center ${this.getCountDownClass()}`}>{this.state.countDown}</h1>
           }
           <div className='room-footer'>
