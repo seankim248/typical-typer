@@ -247,6 +247,21 @@ button:hover {
   color: #272727;
 }
 
+.race-again-button {
+  margin-top: 20px;
+  background-color: #272727;
+  color: #7d7;
+  border: 2px solid #7d7;
+  height: 33px;
+  width: 110px;
+  transition: 0.25s;
+}
+
+.race-again-button:hover {
+  background-color: #7d7;
+  color: #272727;
+}
+
 .links:hover {
   text-decoration: underline;
   cursor: pointer;
