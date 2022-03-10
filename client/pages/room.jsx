@@ -20,7 +20,9 @@ export default class Room extends React.Component {
       endTime: null,
       testFinished: false,
       wpm: null,
-      wordsCompleted: 0
+      wordsCompleted: 0,
+      error: false,
+      loaderClass: false
     };
 
     this.divRef = React.createRef();
@@ -172,9 +174,12 @@ export default class Room extends React.Component {
   handleStart() {
     fetch(`/api/start/${this.props.roomCode}`, {
       method: 'POST'
-    });
+    })
+      .catch(() => {
+        this.setState({ error: true });
+      });
 
-    this.setState({ startGame: true });
+    this.setState({ startGame: true, loaderClass: true });
   }
 
   handleBlinker(index) {
@@ -248,6 +253,12 @@ export default class Room extends React.Component {
                 ))
               }
             </div>
+          }
+          { this.state.chars.length === 0 && !this.state.error && this.state.loaderClass &&
+            <div className='loader'></div>
+          }
+          { this.state.error &&
+            <h1 className='right align-center'>Could not connect to network.</h1>
           }
           { this.state.roomHost && this.state.endTime &&
             <button className={`race-again-button ${!this.state.startTime ? 'hidden' : ''}`} onClick={this.handleReset}>RACE AGAIN</button>

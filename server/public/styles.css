@@ -160,6 +160,7 @@ button:hover {
 }
 
 .prompt {
+  position: relative;
   font-size: 3rem;
   font-weight: 300;
   line-height: 40px;
@@ -269,6 +270,32 @@ button:hover {
 
 .margin-left {
   margin-left: 10px;
+}
+
+.loader {
+  width: 75px;
+  height: 75px;
+  border: 7px solid #3e3e3e;
+  border-bottom-color: #7d7;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #blinker {

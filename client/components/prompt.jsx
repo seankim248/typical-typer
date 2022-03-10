@@ -12,7 +12,8 @@ export default class Prompt extends React.Component {
       isCounting: false,
       startTime: null,
       endTime: null,
-      testFinished: false
+      testFinished: false,
+      error: false
     };
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.getCharClass = this.getCharClass.bind(this);
@@ -20,6 +21,7 @@ export default class Prompt extends React.Component {
     this.handleWPM = this.handleWPM.bind(this);
     this.openModal = this.openModal.bind(this);
     this.onResetClick = this.onResetClick.bind(this);
+    this.getLoaderClass = this.getLoaderClass.bind(this);
   }
 
   componentDidMount() {
@@ -28,7 +30,18 @@ export default class Prompt extends React.Component {
       .then(quote => {
         const charArr = quote.content.split('');
         this.setState({ chars: charArr });
+      })
+      .catch(() => {
+        this.setState({ error: true });
       });
+  }
+
+  getLoaderClass() {
+    if (this.state.chars.length > 0 || this.state.error) {
+      return 'hidden';
+    } else {
+      return '';
+    }
   }
 
   handleKeyDown(e) {
@@ -111,6 +124,10 @@ export default class Prompt extends React.Component {
                   <span key={char + index} id={this.handleBlinker(index)} className={this.getCharClass(index)}>{char}</span>
                 ))
               }
+            <div className={`loader ${this.getLoaderClass()}`}></div>
+            { this.state.error &&
+              <h3 className='right align-center'>Could not connect to network.</h3>
+            }
           </div>
           <h2 className={h2ClassName}>Click on the prompt to start!</h2>
         </div>
