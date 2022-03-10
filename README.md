@@ -2,7 +2,7 @@
 
 A web application for typists who want to practice their typing skills and compete against other users.
 
-The minimalist aesthetic was inspired by monkeytype.com but I realized they didn't have a multiplayer feature. So I combined the aesthetics of monkeytype and functionality of type racing with other users.
+The minimalist aesthetic was inspired by monkeytype.com but their website does not include a multiplayer feature. So I combined the aesthetics of monkeytype and functionality of type racing with other users.
 
 ## Live Demo
 
