@@ -51,7 +51,9 @@ export default class Footer extends React.Component {
             <div className='modal'>
               <h1 className='wpm-message'>Room ID:</h1>
               <br />
-              <input type="text" spellCheck='false' onKeyDown={this.handleInput} />
+              <form>
+                <input type="text" spellCheck='false' onKeyDown={this.handleInput} />
+              </form>
             </div>
           </div>
           <div className={`footer-content ${this.hideLink()}`}>
