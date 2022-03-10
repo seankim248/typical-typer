@@ -2,7 +2,7 @@
 
 A web application for typists who want to practice their typing skills and compete against other users.
 
-The minimalist aesthetic was inspired by monkeytype.com but I realized they didn't have a multiplayer feature. So I combined the aesthetics of monkeytype and functionality of typeracer.
+The minimalist aesthetic was inspired by monkeytype.com but I realized they didn't have a multiplayer feature. So I combined the aesthetics of monkeytype and functionality of type racing with other users.
 
 ## Live Demo
 
@@ -22,6 +22,7 @@ Try the application live at https://typical-typer.herokuapp.com/
  - HTML5
  - CSS3
  - JavaScript
+ - Heroku
 
 ## Features
 
@@ -30,8 +31,7 @@ Try the application live at https://typical-typer.herokuapp.com/
  - User can view their wpm
  - User can create a lobby
  - User can join a lobby
- - User can type in their username
- - User can view other users in lobby
+ - User can create a temporary username
  - User can type with other users
  - User can view their live progress when typing
  - User can reset the typing session / game
@@ -47,14 +47,15 @@ Try the application live at https://typical-typer.herokuapp.com/
 
 ![Kapture 2022-03-10 at 11 01 12](https://user-images.githubusercontent.com/59588689/157738690-879b37a4-bc96-40db-99f6-2c6f84a0251f.gif)
 
+## Development
 
-## System Requirements
+### System Requirements
 
  - Node.js 16 or higher
  - NPM 8 or higher
  - Postgres
 
-## Getting Started
+### Getting Started
 
 1. Clone the repository.
 
