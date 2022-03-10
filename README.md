@@ -43,7 +43,7 @@ Try the application live at https://typical-typer.herokuapp.com/
 
 ## Preview
 
-![Kapture 2022-03-10 at 10 55 01](https://user-images.githubusercontent.com/59588689/157734977-3cc2f38e-085c-4ea3-997d-07d9a8b3b952.gif)
+![Kapture 2022-03-10 at 11 33 09](https://user-images.githubusercontent.com/59588689/157740953-f2891e3b-79e4-47b7-b41b-b98c5ca0584d.gif)
 
 ![Kapture 2022-03-10 at 11 01 12](https://user-images.githubusercontent.com/59588689/157738690-879b37a4-bc96-40db-99f6-2c6f84a0251f.gif)
 
