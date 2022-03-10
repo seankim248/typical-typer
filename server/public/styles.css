@@ -10,7 +10,7 @@ progress {
   width: 100%;
   height: 7px;
   appearance: none;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 progress::-webkit-progress-bar {
@@ -31,7 +31,7 @@ a {
 }
 
 span {
-  font-size: 30px;
+  font-size: 1.875rem;
   box-sizing: border-box;
 }
 
@@ -44,7 +44,7 @@ input {
   border: none;
   color: #7d7;
   border-radius: 50px;
-  padding: 10px;
+  padding: 0.625rem;
   height: 50px;
   width: 100%;
 }
@@ -54,7 +54,7 @@ p {
 }
 
 i {
-  margin-top: 5px;
+  margin-top: 0.313rem;
 }
 
 h1 {
@@ -116,7 +116,7 @@ button:hover {
   left: auto;
   background-color: #272727;
   color: #7d7;
-  padding: 25px;
+  padding: 1.563rem;
   border-radius: 10px;
   text-align: center;
   width: 50%;
@@ -150,7 +150,7 @@ button:hover {
   font-size: 2rem;
   font-weight: 300;
   display: inline-block;
-  margin-left: 10px;
+  margin-left: 0.625rem;
   width: 75%;
 }
 
@@ -184,7 +184,7 @@ button:hover {
 
 .word {
   height: 10px;
-  margin: 15px 5px;
+  margin: 0.938rem 0.313rem;
 }
 
 .hidden {
@@ -201,7 +201,7 @@ button:hover {
 }
 
 .time-options-number {
-  margin: 0 4px;
+  margin: 0 0.25rem;
 }
 
 .time-options-number:hover {
@@ -249,7 +249,7 @@ button:hover {
 }
 
 .race-again-button {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   background-color: #272727;
   color: #7d7;
   border: 2px solid #7d7;
@@ -269,7 +269,7 @@ button:hover {
 }
 
 .margin-left {
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 
 .loader {
