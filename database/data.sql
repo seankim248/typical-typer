@@ -25,4 +25,5 @@ values
   ('Failure is only postponed success as long as courage ''coaches'' ambition. The habit of persistence is the habit of victory.'),
   ('The duty of rhetoric is to deal with such matters as we deliberate upon without arts or systems to guide us, in the hearing of persons who cannot take in at a glance a complicated argument or follow a long chain of reasoning.'),
   ('I have made it a rule of my life to trust a man long after other people gave him up, but I don''t see how I can ever trust any human being again.'),
-  ('Technology has forever changed the world we live in. We''re online, in one way or another, all day long. Our phones and computers have become reflections of our personalities, our interests, and our identities. They hold much that is important to us.')
+  ('Technology has forever changed the world we live in. We''re online, in one way or another, all day long. Our phones and computers have become reflections of our personalities, our interests, and our identities. They hold much that is important to us.'),
+  ('Experience is the name everyone gives to their mistakes.')
