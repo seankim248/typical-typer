@@ -131,7 +131,9 @@ export default class Prompt extends React.Component {
           </div>
           <h2 className={h2ClassName}>Click on the prompt to start!</h2>
         </div>
-        <Modal wpm={this.handleWPM()} openModal={this.openModal()} onResetClick={this.onResetClick} />
+        {
+          <Modal wpm={this.handleWPM()} openModal={this.openModal()} onResetClick={this.onResetClick} />
+        }
       </div>
     );
   }

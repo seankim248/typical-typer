@@ -116,6 +116,10 @@ export default class Room extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.socket.disconnect();
+  }
+
   handleKeyDown(e) {
     if (this.state.currentIndex >= this.state.chars.length - 1) {
       if (!this.state.endTime) {
