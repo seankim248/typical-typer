@@ -10,6 +10,7 @@ export default class Footer extends React.Component {
     this.hideLink = this.hideLink.bind(this);
     this.handleJoin = this.handleJoin.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.exitModal = this.exitModal.bind(this);
   }
 
   hideLink() {
@@ -42,11 +43,15 @@ export default class Footer extends React.Component {
       });
   }
 
+  exitModal() {
+    this.setState({ joinRoomClicked: false });
+  }
+
   render() {
     if (this.state.joinRoomClicked) {
       return (
         <div>
-          <div className='overlay'></div>
+          <div className='overlay' onClick={this.exitModal}></div>
           <div className='modal-container'>
             <div className='modal'>
               <h1 className='wpm-message'>Room ID:</h1>
