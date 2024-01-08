@@ -10,10 +10,10 @@ const { v4: uuidv4 } = require('uuid');
 const rooms = new Map();
 
 const db = new pg.Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  connectionString: process.env.DATABASE_URL
+  // ssl: {
+  //   rejectUnauthorized: true
+  // }
 });
 
 const httpServer = http.createServer(app);
